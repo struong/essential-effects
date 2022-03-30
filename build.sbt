@@ -2,6 +2,17 @@ name := "essential-effects"
 
 version := "0.1"
 
-scalaVersion := "2.13.8"
+ThisBuild / scalaVersion := "2.13.3"
+ThisBuild / fork := true
 
-idePackagePrefix := Some("com.struong")
+val CatsEffectVersion = "2.2.0"
+
+libraryDependencies ++= Seq(
+  "org.typelevel" %% "cats-effect" % CatsEffectVersion,
+  "org.typelevel" %% "cats-effect-laws" % CatsEffectVersion % Test
+)
+
+// remove fatal warnings since exercises have unused and dead code blocks
+scalacOptions --= Seq(
+  "-Xfatal-warnings"
+)
