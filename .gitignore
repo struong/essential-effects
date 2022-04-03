@@ -5,3 +5,8 @@
 project/project
 project/target
 target
+.vscode
+.metals
+.bloop
+project/metals.sbt
+
