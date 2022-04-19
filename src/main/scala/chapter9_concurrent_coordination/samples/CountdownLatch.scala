@@ -24,7 +24,7 @@ object CountdownLatch {
       // await never changes the state
       override def await: IO[Unit] = state.get.flatMap {
         case Outstanding(n, whenDone) =>
-          whenDone.get // blocing effect that unblocks when deferred is complete
+          whenDone.get // blocking effect that unblocks when deferred is complete
         case Done() => IO.unit
       }
 
